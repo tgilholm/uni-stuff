@@ -1,0 +1,61 @@
+body {
+    text-align: center;
+    font-size: 15px;
+    font-size: 1rem;
+    line-height: 21px;
+    line-height: 1.4rem;
+    font-variation-settings: "wght" 400;
+    background-color: #1d1e20;
+    color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+    line-height: 4rem   ;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+input {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 2rem;
+    background-color: #1d1e20;
+    color: #fff;
+    width: 50rem;
+    height: 3rem;
+}
+
+.row {
+    display: flex;
+    align-items: flex-start;
+    /* top align image + text */
+    gap: 1.5rem;
+    justify-content: center;
+    background-color: #2a2b2d;
+    padding: 1rem 1.5rem;
+    margin: 1rem auto;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: #eee;
+    flex: 1;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 0.4rem 0;
+}
+
+.maker,
+.date {
+    font-size: 1rem;
+    margin: 0.1rem 0;
+    color: #aaa;
+}
