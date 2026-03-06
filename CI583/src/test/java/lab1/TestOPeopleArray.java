@@ -7,8 +7,7 @@ import org.junit.Test;
 
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class TestOPeopleArray {
 	
@@ -36,7 +35,7 @@ public class TestOPeopleArray {
 				"Davis\n" +
 				"Monk\n" +
 				"Ra\n";
-		assertEquals(a.getLastNames(), s);
+		assertEquals(s, a.getLastNames());
 	}
 
 	@Test
@@ -45,7 +44,7 @@ public class TestOPeopleArray {
 		insertP();
 		Person p2 = a.find(p.getLastName());
 		assertEquals(p, p2);
-		assertEquals(a.find("bananas"), null);
+        assertNull(a.find("bananas"));
 
 		String s = randomName();
 		a.insert("Fred", s, 42);
@@ -64,7 +63,7 @@ public class TestOPeopleArray {
 		for(int i=0;i<MAX;i++) {
 			a.insert(p.getFirstName(), p.getLastName()+i, p.getAge());
 		}
-		assertEquals(insertP(),false);
+        assertFalse(insertP());
 	}
 
 	@Test

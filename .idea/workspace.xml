@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cad8c6cb-46e7-4abc-8ae7-9d1336670651" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/OrderedPeopleArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/PeopleArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/UnorderedPeopleArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CI583/src/test/java/lab1/TestOPeopleArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CI583/src/test/java/lab1/TestUPeopleArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+    <list default="true" id="cad8c6cb-46e7-4abc-8ae7-9d1336670651" name="Changes" comment="updated monorepo structure">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/OrderedPeopleArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/OrderedPeopleArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/PeopleArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/PeopleArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/UnorderedPeopleArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/CI583/src/main/java/lab1/arrays/UnorderedPeopleArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CI583/src/test/java/lab1/TestOPeopleArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/CI583/src/test/java/lab1/TestOPeopleArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CI583/src/test/java/lab1/TestUPeopleArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/CI583/src/test/java/lab1/TestUPeopleArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +76,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build CI583.executor": "Run",
+    "Gradle.Build uni-stuff.executor": "Run",
     "Gradle.CI583 [:org.tgilholm.Main.main()].executor": "Run",
     "Gradle.CI583 build.executor": "Run",
+    "Gradle.CI583 test.executor": "Run",
     "Gradle.CI583.executor": "Run",
+    "Gradle.TestUPeopleArray.executor": "Run",
+    "Gradle.TestUPeopleArray.testClear.executor": "Run",
+    "Gradle.TestUPeopleArray.testDelete.executor": "Debug",
+    "Gradle.TestUPeopleArray.testFind.executor": "Debug",
     "Gradle.uni-stuff [build].executor": "Run",
     "Gradle.uni-stuff.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -174,6 +180,60 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
+    <configuration name="TestUPeopleArray" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":CI583:test" />
+            <option value="--tests" />
+            <option value="&quot;lab1.TestUPeopleArray&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestUPeopleArray.testClear" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":CI583:test" />
+            <option value="--tests" />
+            <option value="&quot;lab1.TestUPeopleArray.testClear&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
     <configuration name="uni-stuff [build]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -209,9 +269,13 @@
       <item itemvalue="Gradle.CI583 test" />
       <item itemvalue="Gradle.CI583 build" />
       <item itemvalue="Gradle.uni-stuff [build]" />
+      <item itemvalue="Gradle.TestUPeopleArray" />
+      <item itemvalue="Gradle.TestUPeopleArray.testClear" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TestUPeopleArray" />
+        <item itemvalue="Gradle.TestUPeopleArray.testClear" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -234,12 +298,25 @@
       <workItem from="1772799989123" duration="1044000" />
       <workItem from="1772801041772" duration="701000" />
       <workItem from="1772801756121" duration="325000" />
-      <workItem from="1772802093033" duration="131000" />
+      <workItem from="1772802093033" duration="4211000" />
     </task>
+    <task id="LOCAL-00001" summary="updated monorepo structure">
+      <option name="closed" value="true" />
+      <created>1772802276467</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1772802276467</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updated monorepo structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated monorepo structure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -253,6 +330,11 @@
           <url>file://$PROJECT_DIR$/CI583/src/main/java/org/tgilholm/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/CI583/src/test/java/lab1/TestUPeopleArray.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

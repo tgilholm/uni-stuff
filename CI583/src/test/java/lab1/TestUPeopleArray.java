@@ -15,7 +15,7 @@ public class TestUPeopleArray {
 	private Person p = new Person("Don", "Knuth", 75);
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		a = new UnorderedPeopleArray(MAX);
 	}
 
@@ -68,6 +68,5 @@ public class TestUPeopleArray {
 		UnorderedPeopleArray empty = new UnorderedPeopleArray(MAX);
 		assertEquals(a, empty);
 	}
-
 }
 
