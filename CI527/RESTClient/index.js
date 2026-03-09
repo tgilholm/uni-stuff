@@ -1,4 +1,5 @@
 const api_url = "https://api.vam.ac.uk/v2/objects/search/";
+const web_url = "https://collections.vam.ac.uk/item/"   // for links
 
 
 window.addEventListener("load", () => {
@@ -44,7 +45,7 @@ async function search(text, target) {
         const elements = await Promise.all(result.map(record => getElementFromTemplate(record)));
         target.replaceChildren(...elements);
     } catch (error) {
-        displayMessage(target, `Search failed... Reason: ${error.message}`);
+        displayMessage(target, `Error- Reason: ${error.message}`);
     }
 }
 
@@ -77,6 +78,7 @@ async function getElementFromTemplate(record) {
     // Use the template from index.html
     const template = document.getElementById('record-template');
     const clone = template.content.cloneNode(true);
+    const row = clone.querySelector('.row');    // to add the listener
     const imageUrl = getIIIFImage(record);
 
     // Extract each element from the template
@@ -89,8 +91,12 @@ async function getElementFromTemplate(record) {
     title.textContent = record._primaryTitle || record.objectType || "No Title";
     maker.textContent = `Maker: ${record._primaryMaker?.name || "Unknown Maker"}`;
     date.textContent = `Date: ${record._primaryDate || "Unknown Date"}`;
-
     img.setAttribute('src', imageUrl);
+
+    // Send the user to the "actual" site on click
+    row.addEventListener('click', () => {
+        window.open(`${web_url}${record.systemNumber}`);
+    });
 
     return clone;
 }
