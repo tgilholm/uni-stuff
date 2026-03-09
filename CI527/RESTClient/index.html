@@ -2,26 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Hello, world!</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="" />
-    <link rel="icon" href="favicon.png">
+    <meta charset="UTF-8">
+    <title>V&A Search</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="">
 
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="index.js"></script>
 </head>
 
 <body>
-    <h1>Victoria & Albert Museum</h1>
+    <h1>V&A Museum</h1>
 
-    <form>
-        <input id="textInput" type="text" placeholder="Search for an item in the collection">
+    <!-- Accept input from the user -->
+    <form class="search-container">
+        <input id="textInput" type="text" placeholder="Search the V&A">
+        <input id="searchButton" type="button" value="Search">
     </form>
 
-    <div id="result">
-    </div>
+    <!-- All output nodes are appended to the result -->
+    <div id="result"></div>
 
+
+    <!-- Reusable template for records -->
+    <template id="record-template">
+        <div class="row">
+            <img class="image">
+            <div class="text-container">
+                <h3 class="title"></h3>
+                <p class="maker"></p>
+                <p class="date"></p>
+            </div>
+        </div>
+    </template>
 </body>
-
 </html>

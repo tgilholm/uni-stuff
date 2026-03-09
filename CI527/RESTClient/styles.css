@@ -1,42 +1,149 @@
-body {
-    text-align: center;
-    font-size: 15px;
-    font-size: 1rem;
-    line-height: 21px;
-    line-height: 1.4rem;
-    font-variation-settings: "wght" 400;
-    background-color: #1d1e20;
-    color: #fff;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    width: 100%;
-    line-height: 4rem   ;
+* {
+    box-sizing: border-box;
 }
 
 h1 {
-    font-size: 5rem;
+    text-align: center;
+}
+
+.search-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    background-color: #1d1e20;
+    color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
+    /* i love gill sans */
+    max-width: 100vw;
+    overflow-x: hidden;
+    /* hide scrollbar */
+}
+
+
+/* "no results" tag */
+#result>p {
+    grid-column: 1 / -1;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    color: #aaa;
+}
+
+/* tags inside containers */
+.text-container p {
+    text-align: left;
+    margin: 0.1rem 0;
+    font-size: 1rem;
+    color: #aaa;
+}
+
+/* mobile first */
+#result {
+    display: grid;
+    width: 90%;
+    /* fill the container */
+    max-width: 95vw;
+    margin: 0 auto;
+    gap: 2rem;
+    /* 1 column on mobile devices */
+    grid-template-columns: 1fr;
 }
 
 input {
+    vertical-align: middle;
+    margin: 10px auto;
+    border-radius: 4px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 2rem;
     background-color: #1d1e20;
     color: #fff;
-    width: 50rem;
+    width: 80%;
+    max-width: 400px;
     height: 3rem;
+
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+#searchButton {
+    width: auto;
 }
 
 .row {
     display: flex;
-    align-items: flex-start;
-    /* top align image + text */
+    /* Stack vertically on mobile */
+    flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
     justify-content: center;
     background-color: #2a2b2d;
-    padding: 1rem 1.5rem;
-    margin: 1rem auto;
+    padding: 1.5rem;
+    margin: 0;
     border-radius: 12px;
-    max-width: 600px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+    border: 2px transparent solid;
+    /* stops cards jumping around */
+
+    /* Hover effect */
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+input:active,
+input:hover {
+    transform: translateY(-1px);
+    background-color: #35363a;
+    border: 2px white solid;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* make the cards look "interactable" */
+.row:hover {
+    transform: translateY(-2px);
+    background-color: #35363a;
+    border: 2px white solid;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* max size for all images */
+img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Medium Width Screens */
+@media only screen and (min-width: 800px) {
+    #result {
+        /* 2 columns on medium devices */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .row {
+        /* Switch back to horizontal layout on larger screens */
+        flex-direction: row;
+        align-items: stretch;
+        text-align: left;
+    }
+}
+
+/* Fullscreen/Desktop */
+@media only screen and (min-width: 1300px) {
+    h1 {
+        font-size: 5rem;
+        line-height: 4rem;
+    }
+
+    #result {
+        /* 3 columns on desktop */
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .text-container {
