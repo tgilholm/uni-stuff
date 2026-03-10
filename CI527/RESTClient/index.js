@@ -1,7 +1,6 @@
 const api_url = "https://api.vam.ac.uk/v2/objects/search/";
 const web_url = "https://collections.vam.ac.uk/item/"   // for links
 
-
 window.addEventListener("load", () => {
     const button = document.querySelector('#searchButton');
     const form = document.querySelector('.search-container');
@@ -59,6 +58,7 @@ async function getFromQuery(text) {
     const params = new URLSearchParams();
     params.append('q', text);   // search by title
     params.append('images_exist', true);
+    params.append('data_profile', 'full');
 
     const url = `${api_url}?${params.toString()}`;  // e.g ./search/?q=text
     const response = await fetch(url);
@@ -86,11 +86,27 @@ async function getElementFromTemplate(record) {
     const maker = clone.querySelector('.maker');
     const date = clone.querySelector('.date');
     const img = clone.querySelector('.image');
+    const description = clone.querySelector('.description');
+
+    console.log(record);
+
 
     // Fallback to the object type if no title found, then no title
     title.textContent = record._primaryTitle || record.objectType || "No Title";
     maker.textContent = `Maker: ${record._primaryMaker?.name || "Unknown Maker"}`;
     date.textContent = `Date: ${record._primaryDate || "Unknown Date"}`;
+
+    //let recDesc = sanitise(record.summaryDescription);
+    let recDesc = record.summaryDescription;
+
+    // Replace all html elements with empty strings
+    if (recDesc.length > 256) {
+        recDesc = `${recDesc.substring(0, 256)}...`;
+    }
+    //description.textContent = recDesc || "No description";
+
+    description.setHTML(recDesc);   // TODO
+
     img.setAttribute('src', imageUrl);
 
     // Send the user to the "actual" site on click
@@ -99,6 +115,11 @@ async function getElementFromTemplate(record) {
     });
 
     return clone;
+}
+
+function sanitise(input) {
+    // Replace all html tags with empty strings
+    return input.replace(/<[^>]*>/g, "");
 }
 
 
