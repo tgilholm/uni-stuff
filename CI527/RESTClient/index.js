@@ -1,6 +1,7 @@
 const api_url = "https://api.vam.ac.uk/v2/objects/search/";
 const web_url = "https://collections.vam.ac.uk/item/"   // for links
 
+// Start listeners on window load
 window.addEventListener("load", () => {
     const button = document.querySelector('#searchButton');
     const form = document.querySelector('.search-container');
@@ -18,7 +19,8 @@ window.addEventListener("load", () => {
 
 /**
  * Gets a list of all the records matching the search term and fills out
- * the target with the templated results
+ * the target with the templated results. Responds to errors/empty results
+ * with a message to the user
  * @param {string} text the search term from the user
  * @param {Element} target the parent element to fill with elements
  * @returns early return if no text is provided
@@ -48,9 +50,10 @@ async function search(text, target) {
     }
 }
 
+
 /**
  * Executes the GET call with the provided query parameter, returning
- * a promise of an array of records matching the query.
+ * a promise of an array of records in JSON format matching the query.
  * @param {string} text the search term entered by the user
  * @returns {Promise<Array> | null} the array of records
  */
@@ -70,7 +73,7 @@ async function getFromQuery(text) {
 
 /**
  * Returns an Element from the template in index.html with the record's
- * title, maker, date and image (IIIF or thumbnail).
+ * title, maker, date, image (IIIF or thumbnail) and a description of the item.
  * @param {any} record a record from the API call 
  * @returns {Promise<Element>} the element with children created from the template
  */
@@ -88,38 +91,32 @@ async function getElementFromTemplate(record) {
     const img = clone.querySelector('.image');
     const description = clone.querySelector('.description');
 
-    console.log(record);
-
-
     // Fallback to the object type if no title found, then no title
     title.textContent = record._primaryTitle || record.objectType || "No Title";
     maker.textContent = `Maker: ${record._primaryMaker?.name || "Unknown Maker"}`;
     date.textContent = `Date: ${record._primaryDate || "Unknown Date"}`;
+    let recDesc = record.summaryDescription || "No description";   
 
-    //let recDesc = sanitise(record.summaryDescription);
-    let recDesc = record.summaryDescription;
-
-    // Replace all html elements with empty strings
+    // Truncate length to 256 characters
     if (recDesc.length > 256) {
         recDesc = `${recDesc.substring(0, 256)}...`;
     }
-    //description.textContent = recDesc || "No description";
 
-    description.setHTML(recDesc);   // TODO
-
+    /*
+    Object summaryDescriptions from the v&a sometimes return data with HTML tags,
+    for formatting on their website. Their pre-formatted descriptions can be used safely
+    with the setHTML method- a recommended alternative to innerHTML that avoids XSS attacks
+    by removing elements like <script>
+    */
+    description.setHTML(recDesc);
     img.setAttribute('src', imageUrl);
 
-    // Send the user to the "actual" site on click
+    // Send the user to the actual site on click
     row.addEventListener('click', () => {
         window.open(`${web_url}${record.systemNumber}`);
     });
 
     return clone;
-}
-
-function sanitise(input) {
-    // Replace all html tags with empty strings
-    return input.replace(/<[^>]*>/g, "");
 }
 
 
